@@ -1,4 +1,4 @@
-function [polquantile, radialBackground] = calculateRadialBackground(img, center, q, mask)
+function [polquantile, radialBackground] = calculateRadialBackground(img, center, q, mask, nlim)
     % Returns radial quantiles (polquantile) picked in input argument and
     % reconstructed radial background to be subtracted from the original image
     
@@ -38,9 +38,11 @@ function [polquantile, radialBackground] = calculateRadialBackground(img, center
         polquantile(j,2) = rquantile;
     end
     
-    % Smooth radial quantile (remove outliers by looking at neighbors)
-    polquantile(:,2) = medfilt1(polquantile(:,2), 7);
-    
+    % Smooth the radial quantile (remove outliers by looking at neighbors)
+    % in the non-masked region of the image
+    nznum = find(polquantile(:,2)~=0);
+    polquantile(nznum:end,2) = medfilt1(polquantile(nznum:end,2), 13);
+
     % Construct radial quantile background
     radialBackground = img;
     for k = 1:r*c
