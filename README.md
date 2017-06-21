@@ -5,7 +5,7 @@ The algorithm identifies the profile of the beam block, a low-intensity nonconve
 ### Outline of algorithm (steps with * are optional)
 A detailed example can be found in the example folder. After loading a diffraction image, follow the sequence below to obtain a filled binarized mask of the beam block
 low-intensity 
-1. *Appl- medid objectfin anction image.
+1. Apply median filter to diffraction image to remove salt-and-pepper noise.
 pattern/image.ind coarse edge using [`findPersistentEdge`](https://github.com/RealPolitiX/findbeamblock/blob/master/findPersistentEdge.m).
 3. *Improve the coarse edge-finding result by [`radialFilter`](https://github.com/RealPolitiX/findbeamblock/blob/master/radialFilter.m) and [`boundaryFilter`](https://github.com/RealPolitiX/findbeamblock/blob/master/boundaryFilter.m).
 4. Use structuring elements to dilate edges.
