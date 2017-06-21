@@ -40,8 +40,13 @@ function [polquantile, radialBackground] = calculateRadialBackground(img, center
     
     % Smooth the radial quantile (remove outliers by looking at neighbors)
     % in the non-masked region of the image
+    % Marker value (mval)
     nznum = find(polquantile(:,2)~=0);
-    polquantile(nznum:end,2) = medfilt1(polquantile(nznum:end,2), 13);
+    [maxq, maxind] = max(polquantile(:,2));
+    mval = maxq/exp(1);
+    inds = find(polquantile(maxind:end,2) < mval);
+    polquantile(nznum(1):inds(1),2) = medfilt1(polquantile(nznum(1):inds(1),2), 7);
+    polquantile(inds(1):end,2) = medfilt1(polquantile(inds(1):end,2), 23);
 
     % Construct radial quantile background
     radialBackground = img;
