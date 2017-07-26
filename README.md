@@ -19,6 +19,7 @@ To find only the edge of the beam block, one can apply any edge-finder again to 
 
 
 ### Dependencies of the radial background removal routine
+```
 removeRadialBackground
 +---maskBeamBlock
 |	+---findPersistentEdge
@@ -28,7 +29,6 @@ removeRadialBackground
 |
 +---calculateRadialBackground
 	\---quantileNaN
-
-
+```
 +--- the routine constitutes a separate .m file
 \--- the subroutine lives within the parent routine
