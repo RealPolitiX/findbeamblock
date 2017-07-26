@@ -18,6 +18,11 @@ To find only the edge of the beam block, one can apply any edge-finder again to 
 8. Calculate the radial background of the diffraction image using [`calculateRadialBackground`](https://github.com/RealPolitiX/findbeamblock/blob/master/calculateRadialBackground.m).
 
 
+The approach used in calculation of the radial background was originally inspired by Dr. Stuart Hayes.
+
+# Radial background removal
+The full routine ties together the two parts (steps 1-7 and step 8) mentioned in the previous section.
+
 ### Dependencies of the radial background removal routine
 ```
 removeRadialBackground
