@@ -30,5 +30,8 @@ removeRadialBackground
 +---calculateRadialBackground
 	\---quantileNaN
 ```
+```
+N.B.
 +--- the routine constitutes a separate .m file
 \--- the subroutine lives within the parent routine
+```
