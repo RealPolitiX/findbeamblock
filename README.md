@@ -21,22 +21,22 @@ To find only the edge of the beam block, one can apply any edge-finder again to 
 The approach used in calculation of the radial background was originally inspired by Dr. Stuart Hayes.
 
 # Radial background removal
-The full routine ties together the two parts (steps 1-7 and step 8) mentioned in the previous section.
+The full routine, removeRadialBackground, ties together the two parts (steps 1-7 and step 8) mentioned in the previous section.
 
 ### Dependencies of the radial background removal routine
 ```
 removeRadialBackground
 +---maskBeamBlock
-|	+---findPersistentEdge
+|	+---findPersistentEdge (steps 1-7)
 |	+---radialFilter
 |	+---boundaryFilter
 |	+---rotationFill
 |
-+---calculateRadialBackground
++---calculateRadialBackground (step 8)
 	\---quantileNaN
 ```
 ```
 N.B.
-+--- the routine constitutes a separate .m file
-\--- the subroutine lives within the parent routine
++--- the routine appears in a separate .m file
+\--- the subroutine lives within its parent routine
 ```
