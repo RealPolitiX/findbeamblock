@@ -16,3 +16,19 @@ pattern/image.ind coarse edge using [`findPersistentEdge`](https://github.com/Re
 To find only the edge of the beam block, one can apply any edge-finder again to the binarized mask. Follow up on the beam-block-finding, one can calculate the radial quantile to extract an approximate background of the diffraction image.
 
 8. Calculate the radial background of the diffraction image using [`calculateRadialBackground`](https://github.com/RealPolitiX/findbeamblock/blob/master/calculateRadialBackground.m).
+
+
+### Dependencies of the radial background removal routine
+removeRadialBackground
++---maskBeamBlock
+|	+---findPersistentEdge
+|	+---radialFilter
+|	+---boundaryFilter
+|	+---rotationFill
+|
++---calculateRadialBackground
+	\---quantileNaN
+
+
++--- the routine constitutes a separate .m file
+\--- the subroutine lives within the parent routine
