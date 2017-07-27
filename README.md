@@ -13,6 +13,7 @@ pattern/image.ind coarse edge using [`findPersistentEdge`](https://github.com/Re
 6. Use structuring elements to erode away spurious points nearby the edge.
 7. *Apply median filter to remove any remaining isolated spots that still exist on the mask.
 
+
 To find only the edge of the beam block, one can apply any edge-finder again to the binarized mask. Follow up on the beam-block-finding, one can calculate the radial quantile to extract an approximate background of the diffraction image.
 
 8. Calculate the radial background of the diffraction image using [`calculateRadialBackground`](https://github.com/RealPolitiX/findbeamblock/blob/master/calculateRadialBackground.m).
